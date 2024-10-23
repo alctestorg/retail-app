@@ -90,5 +90,8 @@
     "*.{json,md}": [
       "prettier --write"
     ]
+  },
+  "publishConfig": {
+    "@alctestorg:registry": "https://npm.pkg.github.com"
   }
 }
