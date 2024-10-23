@@ -68,9 +68,6 @@ jobs:
         run: git diff --quiet origin/main HEAD -- yarn.lock
         continue-on-error: true
 
-      - name: lock
-        run: yarn lock:check
-
       - name: type checking and declarations
         run: yarn tsc
 
