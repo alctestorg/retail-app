@@ -1,7 +1,7 @@
 # yarn install
 # yarn build:dev
 
-FROM node:16-bullseye-slim
+FROM node:18-bullseye-slim
 
 WORKDIR /app
 

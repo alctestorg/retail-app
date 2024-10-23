@@ -42,7 +42,7 @@ jobs:
       # Also want to cache the dist directory to avoid rebuilding later for deployment
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '18'
           cache: 'yarn'
           cache-dependency-path: 'yarn.lock'
 
@@ -51,7 +51,7 @@ jobs:
         uses: actions/cache@v3
         with:
           path: '**/node_modules'
-          key: ${{ runner.os }}-v16-node_modules-${{ github.base_ref }}-retail-app-${{ hashFiles('yarn.lock', 'package.json') }}
+          key: ${{ runner.os }}-v18-node_modules-${{ github.base_ref }}-retail-app-${{ hashFiles('yarn.lock', 'package.json') }}
 
       # If we get a cache hit for node_modules, there's no need to run yarn install
       # as all dependencies will be installed already.
