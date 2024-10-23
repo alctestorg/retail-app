@@ -32,10 +32,13 @@ jobs:
           REACT_APP_GCP_ERRORS_PROJECT_KEY: '${{ secrets.GCP_ERRORS_ACCOUNT_PRODUCT_DEVELOPMENT }}'
           FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SA_PRODUCT_DEVELOPMENT_BASE64 }}
 
+      - name: Enable Corepack
+        run: corepack enable
+
       # BEGIN yarn setup
       # The caching in the action does not cache node_modules which is needed to avoid reinstalling
       # Also want to cache the dist directory to avoid rebuilding later for deployment
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: '18'
           cache: 'yarn'
