@@ -1,0 +1,84 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: retail
+  namespace: alctestorg
+  description: Everything about retail
+spec:
+  type: product-group
+  owner: alctestorg/eng-raccoon-cloud
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: retail-app
+  namespace: alctestorg
+  description: Retail app system
+spec:
+  type: service
+  owner: alctestorg/eng-raccoon-cloud
+  domain: retail
+---
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: retail-app
+  namespace: alctestorg
+  description: Retail app repository
+spec:
+  type: repository
+  lifecycle: production
+  owner: alctestorg/eng-raccoon-cloud
+  system: retail-app
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: retail-app:v0.3.4
+  namespace: alctestorg
+  description: Retail app container
+spec:
+  type: container
+  owner: alctestorg/alchen99
+  system: retail-app
+  dependsOn:
+    - component:alctestorg/retail-app
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: retail-cloud-run
+  namespace: alctestorg
+  description: Retail app cloud run deployment
+spec:
+  type: cloudrun
+  owner: alctestorg/alchen99
+  system: retail-app
+  dependsOn:
+    - resource:alctestorg/retail-app:v0.3.4
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: retail-vm-image
+  namespace: alctestorg
+  description: Blue Sky / Retail virtual machine Image
+spec:
+  type: vm
+  owner: alctestorg/it-ops
+  system: retail-app
+  dependsOn:
+    - component:alctestorg/retail-app
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: retail-vm
+  namespace: alctestorg
+  description: Blue Sky / Retail virtual machine
+spec:
+  type: vm
+  owner: alctestorg/it-ops
+  system: retail-app
+  dependsOn:
+    - resource:alctestorg/retail-vm-image

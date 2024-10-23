@@ -1,0 +1,24 @@
+# Compiled JavaScript files
+lib/**/*.js
+lib/**/*.js.map
+dist/**/*.js
+dist/**/*.js.map
+dist/**
+
+# TypeScript v1 declaration files
+typings/
+
+# Node.js dependency directory
+node_modules/
+*-debug.log
+
+# .env since it's regenerated automatically
+.env
+
+# all local yaml
+*.local.yaml
+
+# other temp files
+z-*
+*.old
+*.new
