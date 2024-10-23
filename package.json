@@ -92,7 +92,8 @@
     ]
   },
   "publishConfig": {
-    "@alctestorg:registry": "https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   },
+  "repository": "https://github.com/alctestorg/retail-app.git",
   "packageManager": "yarn@4.5.1"
 }
