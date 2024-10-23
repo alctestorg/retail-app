@@ -1,7 +1,7 @@
 {
   "name": "@alctestorg/retail-app",
   "version": "0.2.1",
-  "private": true,
+  "private": false,
   "license": "UNLICENSED",
   "opencontext": {
     "role": "node-library"
